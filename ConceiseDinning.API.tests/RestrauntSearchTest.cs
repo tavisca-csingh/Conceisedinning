@@ -15,11 +15,11 @@ namespace ConceiseDinning.API.tests
             string CityVerbose = "Rajiv Chowk Delhi";
             List<double> actual = new List<double>() { 77.22063, 28.63357 };
             //when
-            List<double> expected = new List<double>() { };
+            
             RestrauntSearchController restrauntSearch = new RestrauntSearchController();
             RestarauntGeocodeLocator restarauntGeocodeLocator = new RestarauntGeocodeLocator();
-            expected.Add(restarauntGeocodeLocator.GetRestarauntGeocodeCoordinates(CityVerbose).Longitude);
-            expected.Add(restarauntGeocodeLocator.GetRestarauntGeocodeCoordinates(CityVerbose).Latitude);
+            List<double> expected = new List<double>() { restarauntGeocodeLocator.GetRestarauntGeocodeCoordinates(CityVerbose).Longitude , restarauntGeocodeLocator.GetRestarauntGeocodeCoordinates(CityVerbose).Latitude };
+      
 
             //then
             Assert.Equal(expected, actual);
